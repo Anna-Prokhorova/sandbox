@@ -1,0 +1,45 @@
+<span class="placeholder" *ngIf="!selectedTask; else button">PICK A TASK</span>
+
+<ng-template #button>
+  <button mat-button (click)="changeStatus(selectedTask!)">
+    {{
+      selectedTask!.status === TaskStatusEnum.ATWORK
+        ? 'MOVE TO DONE'
+        : 'RETURN TO ATWORK'
+    }}
+  </button>
+</ng-template>
+
+@for (task of tasks; track $index) {
+<mat-chip
+  *libHostSwitcher="
+    task.status === TaskStatusEnum.ATWORK;
+    then atwork;
+    else done
+  "
+  (click)="selectTask(task)"
+  class="task"
+  [ngClass]="{ 'm-selected': selectedTask?.id === task.id }"
+  >{{ task.title }}</mat-chip
+>
+}
+
+<div class="cards">
+  <mat-card class="card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="card-title">AT WORK</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div #atwork class="tasks-container"></div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="card-title">DONE</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div #done class="tasks-container"></div>
+    </mat-card-content>
+  </mat-card>
+</div>

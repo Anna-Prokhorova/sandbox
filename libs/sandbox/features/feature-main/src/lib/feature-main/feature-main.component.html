@@ -2,14 +2,13 @@
 <mat-card appearance="outlined">
   <mat-card-content>
     <mat-list class="menu">
-      <mat-list-item
-        class="menu-item"
-        [routerLink]="['./rxjs']"
-        routerLinkActive="router-link-active"
+      <mat-list-item class="menu-item" [routerLink]="['./rxjs']"
         >RxJs</mat-list-item
       >
       <mat-divider></mat-divider>
-      <mat-list-item class="menu-item">Structural Directives</mat-list-item>
+      <mat-list-item class="menu-item" [routerLink]="['./directives']"
+        >Structural Directives</mat-list-item
+      >
     </mat-list>
   </mat-card-content>
 </mat-card>

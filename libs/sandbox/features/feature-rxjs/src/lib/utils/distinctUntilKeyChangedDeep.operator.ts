@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { distinctUntilChanged, Observable, OperatorFunction, scan } from 'rxjs';
+import { distinctUntilChanged, Observable, OperatorFunction } from 'rxjs';
 
 export function distinctUntilKeyChangedDeep<T extends { [key: string]: any }>(
   keyPath: string

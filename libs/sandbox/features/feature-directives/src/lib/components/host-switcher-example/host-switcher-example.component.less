@@ -1,0 +1,61 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+
+  .card {
+    width: 50%;
+  }
+}
+
+.card {
+  &-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &-text {
+    font-size: 14px;
+  }
+}
+
+.tasks {
+  &-container {
+    display: flex;
+    gap: 5px;
+  }
+}
+
+.task {
+  &::ng-deep {
+    * {
+      cursor: pointer;
+    }
+  }
+  &.m {
+    &-selected {
+      background-color: var(--mdc-chip-outline-color);
+      --mdc-chip-label-text-color: white !important;
+    }
+  }
+}
+
+.placeholder {
+  color: var(--mdc-text-button-label-text-color);
+  font-family: var(--mdc-text-button-label-text-font);
+  font-size: var(--mdc-text-button-label-text-size);
+  letter-spacing: var(--mdc-text-button-label-text-tracking);
+  text-transform: var(--mdc-text-button-label-text-transform);
+  font-weight: var(--mdc-text-button-label-text-weight);
+  padding: 0 var(--mat-text-button-horizontal-padding, 8px);
+  height: var(--mdc-text-button-container-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

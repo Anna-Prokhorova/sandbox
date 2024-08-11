@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@sandbox/feature-directives": [
+        "libs/sandbox/features/feature-directives/src/index.ts"
+      ],
       "@sandbox/feature-main": [
         "libs/sandbox/features/feature-main/src/index.ts"
       ],
