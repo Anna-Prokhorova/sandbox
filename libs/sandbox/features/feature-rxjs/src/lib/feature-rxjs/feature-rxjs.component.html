@@ -1,0 +1,61 @@
+<div class="title">CUSTOM RXJS OPERATORS</div>
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="card-title">BufferDynamic</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="card-text">
+      Оператор, который буферизует значения исходного потока в массивы, которые
+      динамически изменяются по размеру на основе второго потока-условия. Второй
+      поток передавает значения, которые определяют текущий размер буфера. Как
+      только буфер достигает указанного размера, массив передается далее по
+      потоку, и буфер начинается с нуля. Оператор корректно обрабатывает
+      ситуацию, когда поток-условие изменяет размер буфера в середине его
+      заполнения.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="startBufferDynamic()">START</button>
+    <button mat-button (click)="stopBufferDynamic()">STOP</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="card-title"
+      >DistinctUntilKeyChangedDeep</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <p class="card-text">
+      Оператор, который отслеживает изменения в сложных объектах, переданных в
+      поток, и выдавает значение только тогда, когда изменяется определенный
+      ключ в глубоко вложенной структуре объекта. Оператор должен принимать путь
+      к ключу в виде строки (например, 'user.address.city') и игнорировать
+      объекты с теми же значениями в этом ключе. Оператор должен быть устойчив к
+      вложенности объектов и массивов, а также корректно обрабатывать изменения
+      внутри массивов.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="startDistinctUntilKeyChangedDeep()">
+      START
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="card-title">ForkJoinWithTimeout</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="card-text">
+      Оператор, который работает аналогично forkJoin, но с добавлением тайм-аута
+      для каждого из потоков. Если один из потоков не завершился в течение
+      заданного времени, он должен быть заменен на значение по умолчанию.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="startForkJoinWithTimeout()">START</button>
+  </mat-card-actions>
+</mat-card>
