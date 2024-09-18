@@ -1,0 +1,53 @@
+.list {
+  --mat-divider-color: var(--mdc-outlined-card-outline-color);
+  max-height: 50vh;
+  overflow-y: auto;
+  &-item {
+    --mdc-list-list-item-one-line-container-height: 50px;
+    cursor: pointer !important;
+
+    &:hover,
+    &.selected {
+      --mdc-list-list-item-hover-label-text-color: white;
+      background-color: #ffd9e1 !important;
+    }
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      width: calc(100% - 24px - 8px);
+      max-width: 400px;
+
+      &-title {
+        font-weight: 500;
+        line-height: unset;
+        line-height: 16px;
+      }
+
+      &-subtitle {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 14px;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    &-img {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+}

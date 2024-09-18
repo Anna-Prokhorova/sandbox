@@ -1,0 +1,44 @@
+.main {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 16px;
+  &-img {
+    width: 45%;
+    border-radius: 5%;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    &-title {
+      font-weight: 500;
+      font-size: 20px;
+      text-transform: capitalize;
+      margin-bottom: 5px;
+    }
+
+    &-subtitle {
+      font-weight: 300;
+    }
+  }
+
+  &-link {
+    margin-top: 8px;
+  }
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  &-item {
+    display: flex;
+    gap: 8px;
+
+    &-subtitle {
+      font-weight: 400;
+    }
+  }
+}

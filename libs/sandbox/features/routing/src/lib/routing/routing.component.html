@@ -1,0 +1,48 @@
+<div class="title">EXPERT ROUTING</div>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  @for (section of sections; track section.link) {
+  <a
+    mat-tab-link
+    routerLinkActive
+    #rla="routerLinkActive"
+    (click)="activeLink = section.link"
+    [active]="rla.isActive"
+    [routerLink]="section.link"
+  >
+    {{ section.name }}
+  </a>
+  }
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <div class="cards">
+    <mat-card class="card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title class="card-title">LIST</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card" appearance="outlined">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">DETAILS</mat-card-title>
+        @if (isShowDetails()) {
+        <mat-icon
+          class="card-close"
+          [routerLink]="['/routing', { outlets: { details: null } }]"
+          >close</mat-icon
+        >
+        }
+      </mat-card-header>
+      <mat-card-content>
+        <router-outlet
+          (activate)="isShowDetails.set(true)"
+          (deactivate)="isShowDetails.set(false)"
+          name="details"
+        ></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-tab-nav-panel>

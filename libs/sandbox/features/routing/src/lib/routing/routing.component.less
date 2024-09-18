@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .title {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+
+  .card {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: min-content;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-close {
+      cursor: pointer;
+    }
+  }
+}
+
+.card {
+  &-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &-text {
+    font-size: 14px;
+  }
+}
