@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Type } from '@angular/core';
 import { Route } from '@angular/router';
-import { FeatureDirectivesComponent } from '@sandbox/feature-directives';
 import { FeatureMainComponent } from '@sandbox/feature-main';
-import { FeatureRxjsComponent } from '@sandbox/feature-rxjs';
 
 export const appRoutes: Route[] = [
   {
@@ -11,14 +10,23 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'rxjs',
-    component: FeatureRxjsComponent,
+    data: { preload: false },
+    loadComponent: (): Promise<Type<unknown>> =>
+      import('@sandbox/feature-rxjs').then(
+        (m: any): Type<unknown> => m.FeatureRxjsComponent
+      ),
   },
   {
     path: 'directives',
-    component: FeatureDirectivesComponent,
+    data: { preload: false },
+    loadComponent: (): Promise<Type<unknown>> =>
+      import('@sandbox/feature-directives').then(
+        (m: any): Type<unknown> => m.FeatureDirectivesComponent
+      ),
   },
   {
     path: 'routing',
+    data: { preload: true, delay: 1000 },
     loadChildren: (): Promise<Route[]> =>
       import('@sandbox/routing').then((m: any): Route[] => m.routingRoutes),
   },

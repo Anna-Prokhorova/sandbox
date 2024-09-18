@@ -25,7 +25,8 @@
         "libs/sandbox/features/feature-rxjs/src/index.ts"
       ],
       "@sandbox/routing": ["libs/sandbox/features/routing/src/index.ts"],
-      "@sandbox/ui": ["libs/shared/ui/src/index.ts"]
+      "@sandbox/ui": ["libs/shared/ui/src/index.ts"],
+      "@sandbox/util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
